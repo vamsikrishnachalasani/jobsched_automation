@@ -1,24 +1,17 @@
-import groovy.json.JsonOutput
-@Library(['PSL@LKG', 'DBPPermissions']) _
+//import groovy.json.JsonOutput
+//@Library(['PSL@LKG', 'DBPPermissions']) _
 
 // Welcome to the RTF IaC pipeline
 // The following diagram shows the stage layout for this parameterized job:
 //
 
 
-boolean is_production_branch = (env.BRANCH_NAME == 'master' || env.BRANCH_NAME.startsWith('release-'))
-boolean skipRemainingStages = false
+//boolean is_production_branch = (env.BRANCH_NAME == 'master' || env.BRANCH_NAME.startsWith('release-'))
+//boolean skipRemainingStages = false
 
 pipeline {
-    agent {
-        docker {
-            label 'aws-centos'
-            image 'dbp/iac-tools:master_19'
-            registryUrl 'http://autodesk-docker.art-bobcat.autodesk.com/'
-            registryCredentialsId 'cosv2_artifactory_user'
-            args '-u root'
-        }
-    }
+    agent any
+    
     stages {
         stage('Check Permissions') {
             steps{
@@ -30,10 +23,10 @@ pipeline {
                 }
             }
         }
-		stage('run shell script'){
-			steps{
-				sh './job_and_job_chain_status.sh'
-			}
+	stage('run shell script'){
+		steps{
+			sh './job_and_job_chain_status.sh'
 		}
+	}
     } // stages
 } // pipeline
