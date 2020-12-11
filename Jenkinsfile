@@ -20,6 +20,7 @@ pipeline {
     }
     stage('run shell script'){
 	steps{
+		sh 'chmod +x job_and_job_chain_status.sh'
 		sh './job_and_job_chain_status.sh'
 	}
      }
