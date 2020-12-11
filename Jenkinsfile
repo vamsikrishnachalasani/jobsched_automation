@@ -15,7 +15,7 @@ pipeline {
     stages {
         stage('run shell script'){
 		steps{
-			sh 'sudo ./job_and_job_chain_status.sh'
+			sh 'sudo -s ./job_and_job_chain_status.sh'
 		}
 	}
     } // stages
