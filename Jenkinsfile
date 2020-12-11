@@ -13,10 +13,15 @@ pipeline {
     agent any
     
     stages {
-        stage('run shell script'){
-		steps{
-			sh 'sudo -s ./job_and_job_chain_status.sh'
-		}
+	stage('Checkout code') {
+        steps {
+            checkout scm
+        }
+    }
+    stage('run shell script'){
+	steps{
+		sh 'sudo -s ./job_and_job_chain_status.sh'
 	}
-    } // stages
+     }
+  } // stages
 } // pipeline
