@@ -1,10 +1,10 @@
-#!/usr/bin/sh
+#!/usr/bin/bash
  
 # -----------------------------------------
 # MODIFY FOR YOUR ENVIRONMENT
  
 # Protocol, host and port of JOC Cockpit
-JS_URL="https://internal-jobsched-gui-lb-poc-1675361362.us-west-2.elb.amazonaws.com:443/joc/"
+JS_URL="https://internal-jobsched-gui-lb-poc-1675361362.us-west-2.elb.amazonaws.com/joc/"
  
 # Identification of JobScheduler instance
 JS_ID="testsuite"
