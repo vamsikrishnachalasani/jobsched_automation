@@ -13,17 +13,7 @@ pipeline {
     agent any
     
     stages {
-        stage('Check Permissions') {
-            steps{
-                script{
-                    wrap([$class: 'BuildUser']) {
-                        def user=BUILD_USER_ID
-                        Permissions(user, env.BRANCH_NAME, params.target_environment)
-                    }
-                }
-            }
-        }
-	stage('run shell script'){
+        stage('run shell script'){
 		steps{
 			sh './job_and_job_chain_status.sh'
 		}
